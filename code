@@ -1,0 +1,76 @@
+
+import java.util.Scanner;
+
+public class overtiePaymentReport {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.println("THIS PROGRAM CALCULATES THE OVERTIME PAYMENT OF A COMPANY"
+                + " WITH THREE DIFFERENT DEPARTMENTS.\n");
+
+//information about HR departent
+        System.out.println("Please enter the information for HR department:");
+        System.out.print("      Number of employees who have worked overtime       :");
+        int HRnum = input.nextInt();
+        System.out.print("      Total number of worked overtime hours per employee :");
+        int HRh = input.nextInt();
+        System.out.println();
+        System.out.println();
+
+//information about PA department 
+        System.out.println("Please enter the information for PA department:");
+        System.out.print("      Number of employees who have worked overtime       :");
+        int PAnum = input.nextInt();
+        System.out.print("      Total number of worked overtime hours per employee :");
+        int PAh = input.nextInt();
+        System.out.println("\n");
+
+//information about FD department 
+        System.out.println("Please enter the information for FD department:");
+        System.out.print("      Number of employees who have worked overtime       :");
+        int FDnum = input.nextInt();
+        System.out.print("      Total number of worked overtime hours per employee :");
+        int FDh = input.nextInt();
+        System.out.println("\n");
+
+//declaring the constant 
+        final int NUMBER_OF_HR = 30;
+        final int NUMBER_OF_PA = 50;
+        final int NUMBER_OF_FD = 10;
+        final int COST_HR = 150;
+        final int COST_PA = 120;
+        final int COST_FD = 170;
+ //the total payment for each department
+        double tHR = COST_HR * HRnum * HRh;
+        double tPA = COST_PA * PAnum * PAh;
+        double tFD = COST_FD * FDnum * FDh;
+
+        System.out.println("Detailed Report of the Overtime Payment System for all three Department");
+        System.out.println("--------------------------------------------------------------------------------------");
+        System.out.println("Dept. #of Emp. Rate/hour #of working Emp. Total overtime hours Total Payment Percentage");
+        System.out.println("****************************************************************************************");
+
+        String HRdep = ("HR");
+        String PAdep = ("PA");
+        String FDdep = ("FD");
+        String percentage = ("%");
+
+        double HRpercent = ((HRnum * 100.0) / NUMBER_OF_HR);
+        double PApercent = ((PAnum * 100.0) / NUMBER_OF_PA);
+        double FDpercent = ((FDnum * 100.0) / NUMBER_OF_FD);
+
+//DISPLAY THE OUTPUT
+        System.out.printf("%-8s%-9d%-12d%-19d%-17d%-14.2f%.2f%s%n", HRdep, NUMBER_OF_HR, COST_HR, HRnum, HRh, tHR, HRpercent, percentage);
+        System.out.printf("%-8s%-9d%-12d%-19d%-17d%-14.2f%.2f%s%n", PAdep, NUMBER_OF_PA, COST_PA, PAnum, PAh, tPA, PApercent, percentage);
+        System.out.printf("%-8s%-9d%-12d%-19d%-17d%-14.2f%.2f%s%n", FDdep, NUMBER_OF_FD, COST_FD, FDnum, FDh, tFD, FDpercent, percentage);
+        System.out.println("****************************************************************************************");
+
+//diplay the total of the three department payment
+        double total = tHR + tPA + tFD;
+        String sentance = ("Total Overtime Payment of the company = ");
+        String riyal = (" Riyal.");
+        System.out.printf("%s%.2f%s%n", sentance, total, riyal);
+
+    }
+}
